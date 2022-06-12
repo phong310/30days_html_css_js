@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Skeleton Loading Effect</title>
+</head>
+
+<body>
+    <div class="card">
+        <div class="card__img loading"></div>
+        <div class="card__info">
+            <h2 class="loading"></h2>
+            <p class="loading"></p>
+            <button class="loading"></button>
+        </div>
+    </div>
+</body>
+<script>
+    const cardImg = document.querySelector('.card__img')
+    const cardHeading = document.querySelector('.card__info h2')
+    const cardContent = document.querySelector('.card__info p')
+    const cardBtn = document.querySelector('.card__info button')
+
+    setTimeout(() => {
+        cardImg.innerHTML = '<img src="kyoukoicons.jpg" alt="">'
+
+        cardHeading.innerHTML = 'RORONOA ZORO'
+        cardContent.innerHTML = 'Đôi khi, chúng ta mải mê optiomize code, làm code chạy nhanh hơn mà quên mất một điều là code phải chạy đúng, dễ hiểu dễ đọc trước đã. Việc optimize code sớm thường không đem lại hiệu quả cao, nhưng lại gây mất thời gian của dev, làm code khó đọc hơn.'
+        cardBtn.innerHTML = 'Read More'
+
+        // remove loading
+        document.querySelectorAll('.loading').forEach(item => {
+            item.classList.remove('loading')
+        })
+
+    }, 4000)
+
+</script>
+
+</html>
