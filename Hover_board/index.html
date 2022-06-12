@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Hover Board</title>
+</head>
+<body>
+    <div class="container"></div>
+    <script>
+        var container = document.querySelector('.container')
+        const SQUARES = 300
+
+        for(var i=0; i< SQUARES; i++) {
+            const square = document.createElement('div');
+            square.classList.add('square')
+
+            square.addEventListener('mouseover', () => {
+                setColor(square)
+            })
+            square.addEventListener('mouseout', () => {
+                removeColor(square)
+            })
+
+            container.appendChild(square)
+        }
+
+        function setColor(element) {
+            const color = generateRandomColor();
+            element.style.backgroundColor = color;
+            element.style.boxshadow = `0 0 10px ${color}, 0 0 100px ${color}`;
+        }
+
+        function removeColor(element) {
+            element.style.backgroundColor = "#1d1d1d";
+            element.style.boxshadow ="0 0 2px #000"
+        }
+
+        function generateRandomColor() {
+            let letters = "0123456789ABCDEF";
+            let color = '#'
+            for(var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random()* 16)];
+            }
+            return color;
+        }
+    </script>
+</body>
+</html>
